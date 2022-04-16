@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./whac-a-mole.css">
+  <title>whac-a-mole</title>
+</head>
+
+<body>
+  <div class="modal">
+    <div class="modal-result hidden">
+      <text class="text"></text>
+      <br />
+      <button type="button" class="restart">
+        RESTART
+      </button>
+    </div>
+    <div class="modal-description">
+      game description: <br />
+      .......<br />
+      <button type="button" class="start">
+        START
+      </button>
+    </div>
+  </div>
+
+  <div class="record">
+    <h2>Your scores:</h2>
+    <span id="score">0</span>
+    <br />
+    <h2>Time Left:</h2>
+    <span id="time-out"></span>
+  </div>
+
+  <div class="squares">
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square mole"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+  </div>
+
+  <script type="module" src="./whac-a-mole.js"></script>
+</body>
+
+</html>
