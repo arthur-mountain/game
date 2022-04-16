@@ -1,48 +1,58 @@
 import RequestAnimation from './requestAnimation.js';
+import { createElement, transTimeOut } from './utils.js';
+
+// Constants
 const MOLE_INTERVAL_SECOND = 0.7;
 const TIME_OUT_INTERVAL_SECOND = 1;
+
+// DOM Element
 const score = document.getElementById('score');
 const timeOut = document.getElementById('time-out');
 const squares = document.querySelectorAll('.square');
 const modal = document.querySelector('.modal');
+
+// RequestAnimationFrame instance
 const moleAnimation =
-  new RequestAnimation(randomChangeMole, MOLE_INTERVAL_SECOND);
+  new RequestAnimation(randomPosition, MOLE_INTERVAL_SECOND);
 const countDownAnimation =
   new RequestAnimation(handleCountDown, TIME_OUT_INTERVAL_SECOND);
-const textConentEvent = new CustomEvent('textConent');
+
+// Custom event for textContent change
+const textConentEvent = new CustomEvent('textConentChange');
 let result = 0;
-let timeOutSecond = 120;
+let timeOutSecond = 1;
 
 window.addEventListener('DOMContentLoaded', () => {
   timeOut.textContent = transTimeOut(timeOutSecond);
-  modal.querySelector('.start').addEventListener('click', handleStart);
-  modal.querySelector('.restart').addEventListener('click', handleReStart);
+  modal.querySelector('.start').addEventListener('click', handleStartGame);
 
   squares.forEach(square => (
     square.addEventListener('click', handleSquareClick)
   ))
 
-  timeOut.addEventListener('textConent', handleTextContentEvent)
+  timeOut.addEventListener('textConentChange', handleTextChangeEvent)
 })
 
-function handleStart() {
+function handleStartGame() {
   modal.classList.add('hidden');
-  modal.querySelector('.modal-description').classList.add('hidden');
-  modal.querySelector('.modal-result').classList.remove('hidden');
+  modal.querySelector('.modal-description').remove();
   moleAnimation.start();
   countDownAnimation.start();
 }
 
-function handleReStart() {
+function handleReStartGame() {
   window.location.reload();
 }
 
-function randomChangeMole() {
+// Change mole random position.
+function randomPosition() {
   squares.forEach(square => square.classList.remove('mole'))
   const newSquareMole = squares[Math.floor(Math.random() * squares.length)]
   newSquareMole.classList.add('mole');
 }
 
+
+// Game time out
 function handleCountDown() {
   timeOutSecond -= 1;
   timeOut.dispatchEvent(textConentEvent);
@@ -57,26 +67,24 @@ function handleSquareClick(e) {
   }
 }
 
-function handleTextContentEvent(e) {
+function handleTextChangeEvent(e) {
   e.preventDefault();
   timeOut.textContent = transTimeOut(timeOutSecond);
 
+  // Game over (stop animation, show result modal)
   if (timeOutSecond === 0) {
     moleAnimation.stop();
     countDownAnimation.stop();
-    modal.querySelector('.text').textContent =
-      `Your final score is: ${result}`;
+    const modalResult = createElement(
+      'div',
+      { className: "modal-result" },
+      createElement('text', { className: "text" }, 'Your final score is:'),
+      createElement('span', { className: 'result' }, `${result}`),
+      createElement('br'),
+      createElement('button', { type: 'button', className: 'restart', onClick: handleReStartGame }, 'RESTART'),
+    );
+
+    modal.appendChild(modalResult);
     modal.classList.remove('hidden');
   }
-}
-
-function transTimeOut(value) {
-  if (value <= 60) {
-    return value;
-  }
-
-  const minutes = `${Math.floor(value / 60)}`.padStart(2, '0');
-  const seconds = `${value % 60}`.padEnd(2, '0');
-
-  return `${minutes}:${seconds}`;
 }

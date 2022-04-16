@@ -64,10 +64,6 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.hidden {
-  display: none;
-}
-
 .modal div {
   width: 45%;
   position: relative;
@@ -78,6 +74,19 @@ body {
   padding: 2.5rem;
   font-size: 2rem;
   text-align: center;
+  border-radius: 10px;
+}
+
+.modal .result {
+  font-size: 3rem;
+  color: blueviolet;
+}
+
+.hidden {
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .modal button {
