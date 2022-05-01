@@ -20,7 +20,7 @@ const countDownAnimation =
 // Custom event for textContent change
 const textConentEvent = new CustomEvent('textConentChange');
 let result = 0;
-let timeOutSecond = 1;
+let timeOutSecond = 60;
 
 window.addEventListener('DOMContentLoaded', () => {
   timeOut.textContent = transTimeOut(timeOutSecond);
