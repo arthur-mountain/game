@@ -1,3 +1,9 @@
+/**
+ * @param {Function} Function The animation callback or something others wish to do.
+ * @param {Number} number Timeout(second), the callback will be invoked after timeout;
+ * @description The callback function will be continuously invoked by browser requestAnimationFrame after timeout.
+ ** P.S. Window.requestAnimationFrame will be called at every repaint.
+ */
 class RequestAnimation {
   #cancelId;
   #lastRenderTime;
