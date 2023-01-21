@@ -1,0 +1,14 @@
+{
+  "name": "fighting-game",
+  "version": "1.0.0",
+  "description": "fighting game",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx tailwindcss -i css/tailwind.css -o css/output.css --watch"
+  },
+  "author": "arthur",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  }
+}

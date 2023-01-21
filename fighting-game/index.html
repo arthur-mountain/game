@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+  <title>fighting-game</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/output.css">
+</head>
+
+<body>
+  <div class="relative">
+    <div class="absolute w-full top-4 flex items-center px-8">
+      <!-- hero health -->
+      <div class="relative w-full h-8">
+        <div class="h-full bg-white"></div>
+        <div id="heroHealth" class="h-full absolute top-0 right-0 bg-cyan-500 transition-[width] ease-in duration-300"
+          style="width:100%;"></div>
+      </div>
+      <!-- timer -->
+      <div id="timer"
+        class="w-24 h-24 bg-slate-500 flex items-center justify-center flex-shrink-0 text-5xl text-white rounded-md">
+        <span>15</span>
+      </div>
+      <!-- enemy health -->
+      <div class="relative w-full h-8">
+        <div class="h-full bg-white"></div>
+        <div id="enemyHealth" class="h-full absolute top-0 left-0 bg-rose-700 transition-[width] ease-in duration-300"
+          style="width:100%;"></div>
+      </div>
+    </div>
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/gameObject.js"></script>
+  <script src="js/sprite.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
