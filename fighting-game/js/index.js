@@ -10,12 +10,12 @@ const gravity = 0.7;
 
 const background = new GameObject({
   position: { x: 0, y: 0 },
-  imgUrl: "../img/background.png"
+  imgUrl: "img/background.png"
 });
 
 const shop = new GameObject({
   position: { x: 550, y: 160 },
-  imgUrl: "../img/shop.png",
+  imgUrl: "img/shop.png",
   scale: 2.5,
   framesMax: 6,
 });
@@ -25,40 +25,40 @@ const hero = new Sprite({
   velocity: { x: 0, y: 0 },
   offset: { x: 200, y: 92 },
   speed: 3,
-  imgUrl: "../img/hero/Idle.png",
+  imgUrl: "img/hero/Idle.png",
   framesMax: 8,
   scale: 2,
   sprites: {
     idle: {
-      imgUrl: "../img/hero/Idle.png",
+      imgUrl: "img/hero/Idle.png",
       framesMax: 8,
     },
     run: {
-      imgUrl: "../img/hero/Run.png",
+      imgUrl: "img/hero/Run.png",
       framesMax: 8,
     },
     jump: {
-      imgUrl: "../img/hero/Jump.png",
+      imgUrl: "img/hero/Jump.png",
       framesMax: 2,
     },
     fall: {
-      imgUrl: "../img/hero/Fall.png",
+      imgUrl: "img/hero/Fall.png",
       framesMax: 2,
     },
     attack1: {
-      imgUrl: "../img/hero/Attack1.png",
+      imgUrl: "img/hero/Attack1.png",
       framesMax: 6,
     },
     attack2: {
-      imgUrl: "../img/hero/Attack2.png",
+      imgUrl: "img/hero/Attack2.png",
       framesMax: 6,
     },
     takeHit: {
-      imgUrl: "../img/hero/TakeHitWhiteSilhouette.png",
+      imgUrl: "img/hero/TakeHitWhiteSilhouette.png",
       framesMax: 4,
     },
     death: {
-      imgUrl: "../img/hero/Death.png",
+      imgUrl: "img/hero/Death.png",
       framesMax: 6,
     },
   },
@@ -74,40 +74,40 @@ const enemy = new Sprite({
   velocity: { x: 0, y: 0 },
   offset: { x: 180, y: 102 },
   speed: 3,
-  imgUrl: "../img/enemy/Idle.png",
+  imgUrl: "img/enemy/Idle.png",
   framesMax: 4,
   scale: 2,
   sprites: {
     idle: {
-      imgUrl: "../img/enemy/Idle.png",
+      imgUrl: "img/enemy/Idle.png",
       framesMax: 4,
     },
     run: {
-      imgUrl: "../img/enemy/Run.png",
+      imgUrl: "img/enemy/Run.png",
       framesMax: 8,
     },
     jump: {
-      imgUrl: "../img/enemy/Jump.png",
+      imgUrl: "img/enemy/Jump.png",
       framesMax: 2,
     },
     fall: {
-      imgUrl: "../img/enemy/Fall.png",
+      imgUrl: "img/enemy/Fall.png",
       framesMax: 2,
     },
     attack1: {
-      imgUrl: "../img/enemy/Attack1.png",
+      imgUrl: "img/enemy/Attack1.png",
       framesMax: 4,
     },
     attack2: {
-      imgUrl: "../img/enemy/Attack2.png",
+      imgUrl: "img/enemy/Attack2.png",
       framesMax: 4,
     },
     takeHit: {
-      imgUrl: "../img/enemy/TakeHit.png",
+      imgUrl: "img/enemy/TakeHit.png",
       framesMax: 3,
     },
     death: {
-      imgUrl: "../img/enemy/Death.png",
+      imgUrl: "img/enemy/Death.png",
       framesMax: 7,
     },
   },
